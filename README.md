@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/antonrosh/card-game-api-ts-playwright.git
+git clone https://github.com/antongulin/card-game-api-ts-playwright.git
 cd card-game-api-ts-playwright
 ```
 
@@ -62,7 +62,7 @@ The current configuration (.github/workflows/playwright.yml) is setup to run tes
 
 ## Reports
 
-The Playwright HTML report for the tests is available [here](https://github.com/antonrosh/card-game-api-ts-playwright/actions/workflows/playwright.yml). You can download the report by clicking on the "playwright-report" link under the "Artifacts" section in each workflow run.
+The Playwright HTML report for the tests is available [here](https://github.com/antongulin/card-game-api-ts-playwright/actions/workflows/playwright.yml). You can download the report by clicking on the "playwright-report" link under the "Artifacts" section in each workflow run.
 
 ## Implementation
 
@@ -90,5 +90,5 @@ A page object model is used to structure the tests, making the test code more re
 
 ## Contact
 
-- Anton Rosh - me@antonrosh.dev
-- Project Link - [https://github.com/antonrosh/checkers-game-ts-playwright](https://github.com/antonrosh/card-game-api-ts-playwright)
+- Anton Gulin - i@anton.qa
+- Project Link: https://github.com/antongulin/card-game-api-ts-playwright
