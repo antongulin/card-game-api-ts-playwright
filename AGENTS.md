@@ -10,15 +10,15 @@ TypeScript with Playwright. `tests/card.game.test.ts` plays a card-game scenario
 service; `api/deck.api.ts` wraps the HTTP calls. This is a public portfolio repository, not a
 deployed product and not a library anyone installs.
 
-The repository is **archived** on GitHub. GitHub rejects pushes while it stays archived, so any
-branch, PR, or merge needs explicit unarchiving authorization. Do not change archive state as a
-side effect of another task, and leave `archive` unchanged when only the contents are in scope.
+The repository is normally **archived** on GitHub. For an authorized publication, temporarily
+unarchive it only when necessary, and restore and verify the original archive state afterward.
+Reuse existing task authorization; preserve archive state during local-only work.
 
 ## Ownership
 
-Maintained by Anton Gulin (`i@anton.qa`, https://anton.qa). Scope, publication, merge, and
-unarchive decisions belong to Anton; an agent proposes, it does not assume. The public identity in
-every metadata field, docstring, and attribution string is **Anton Gulin**.
+Maintained by Anton Gulin (`i@anton.qa`, https://anton.qa). Follow Anton's task scope and standing
+publication and merge authority in the shared workflow. The public identity in metadata,
+docstrings, and attribution strings is **Anton Gulin**; preserve historical Git authorship.
 
 ## Local Contracts
 
@@ -41,8 +41,10 @@ Small, flat tree. The files that carry the contracts:
 
 Configuration and side effects:
 
-- `BASE_URL` is read from `.env` locally and from the `BASE_URL` GitHub secret in CI. `.env` is
-  gitignored. Never commit it, print its values, or copy secrets into prompts or logs.
+- `DeckApi` loads `.env` through `dotenv` and passes `process.env.BASE_URL` to its separate
+  request context. This does not inherit the hardcoded URL in `playwright.config.ts`. CI writes
+  the `BASE_URL` GitHub secret to `.env`; locally supply the public service URL there. `.env` is
+  gitignored. Never commit it, print secrets, or copy them into prompts or logs.
 - Tests call a live public API. They need network access and produce no local state beyond
   `playwright-report/` and `test-results/`, both ignored.
 
@@ -57,9 +59,8 @@ Configuration and side effects:
   is separate, separately authorised work, not a side effect.
 - The Robin `review` job takes a `runner` input. Its contract is a JSON-encoded string, so the label
   is written as `'"ubicloud-standard-2"'` (quoted inside quoted), not as a bare label.
-- Merge strategy: squash by default for one cohesive PR, subject to the repository actually
-  permitting squash merges. The archived repository's merge-setting response did not expose
-  `allow_squash_merge`, so verify the setting before merging rather than assuming it.
+- Merge strategy: squash by default for one cohesive PR. Verify permitted merge methods and
+  effective branch gates before merging; preserve repository settings and protections.
 - Shared workflow rules are not duplicated here. Read `~/.agents/instructions/WORKFLOW.md`, or
   https://github.com/antongulin/baseline/blob/main/baseline/02-agents.md when that file is absent.
 
@@ -73,8 +74,8 @@ Run only what the change can break. This repository has no lint, typecheck, or u
 - `python3 -c "import json; json.load(open('package.json'))"` - confirms the manifest still parses
   after a metadata edit.
 - `git diff --check` - catches whitespace damage.
-- CI: the `Playwright API Tests` workflow is the authoritative suite. The last recorded run on
-  2026-06-17 failed, so do not claim a green suite without a current run on the change.
+- CI: the `Playwright API Tests` workflow runs the suite. Verify current run results before
+  claiming success; static parsing alone does not prove workflow execution.
 
 ## DOX rules
 
