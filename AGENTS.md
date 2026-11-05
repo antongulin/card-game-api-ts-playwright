@@ -59,6 +59,8 @@ Configuration and side effects:
   is separate, separately authorised work, not a side effect.
 - The Robin `review` job takes a `runner` input. Its contract is a JSON-encoded string, so the label
   is written as `'"ubicloud-standard-2"'` (quoted inside quoted), not as a bare label.
+- The Robin caller requires `actions: read`, `contents: read`, and `pull-requests: write`.
+  Keep these permissions aligned with the reusable workflow.
 - Merge strategy: squash by default for one cohesive PR. Verify permitted merge methods and
   effective branch gates before merging; preserve repository settings and protections.
 - Shared workflow rules are not duplicated here. Read `~/.agents/instructions/WORKFLOW.md`, or
