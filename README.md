@@ -75,9 +75,13 @@ A page object model is used to structure the tests, making the test code more re
 ```bash
 ├── .github/                       # Contains GitHub files
 │   └── workflows/                 # Contains GitHub Action files
+│       ├── code-review.yml        # Robin automated PR review
 │       └── playwright.yml         # GitHub Actions Playwright workflow
+├── AGENTS.md                      # Repository contract for coding agents
 ├── api/                           # Contains page classes
 │   └── deck.api.ts                # deckApi class
+├── docs/
+│   └── dox-LICENSE.txt            # MIT notice for adapted DOX guidance
 ├── tests/                         # Contains all tests
 │   └── card.game.test.ts          # Tests for DeckApi
 ├── .env                           # Contains environment variables
